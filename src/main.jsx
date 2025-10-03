@@ -1,22 +1,15 @@
-<<<<<<< HEAD
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { Curso} from './Curso'
-import "./styles.css"
-
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-   <Curso></Curso>
-  </StrictMode>,
-)
-=======
-import React from "react";
-import ReactDOM from "react-dom/client";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { Curso } from "./Curso";
 import App from "./App";
+import "./styles.css";
+import { BrowserRouter } from "react-router-dom";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+createRoot(document.getElementById("root")).render(
+  <BrowserRouter>
+    <StrictMode>
+      <Curso></Curso>
+      <App />
+    </StrictMode>
+  </BrowserRouter>,
 );
->>>>>>> f79519f (fase 1 de prueba del localStorage en el proyecto)
