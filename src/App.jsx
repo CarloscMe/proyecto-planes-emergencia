@@ -2,7 +2,10 @@ import { useStateLogin } from "./componentes/login"; //hook personalizado de log
 import FormularioLogin from "./FormularioLogin";
 import { Curso} from "./Curso"
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import {useEffect, useState } from "react";
+
+import { examenes } from "./componentes/examen";
+import SeleccionarExamen from "./SeleccionarExamen";
 
 function App() {
   //usuario y contraseña del test
@@ -20,8 +23,18 @@ function App() {
     }
   }, [usuarioLogeado, navigate]);
 
+  /*--------------------------------------------------------------------------*/
+  const [indiceSeleccionado, setIndiceSeleccionado] = useState(0)
+  const cambioLeccion = (evento) => setIndiceSeleccionado(parseInt(evento.target.value));
+  const seleccionada = examenes[indiceSeleccionado];
   return (
     <>
+    <div>
+      <hr/>
+        <SeleccionarExamen examenes={examenes} seleccionada={seleccionada} 
+        indiceSeleccionado={indiceSeleccionado} cambioLeccion={cambioLeccion}/>
+      <hr/>
+    </div>
 
     <Routes>
       <Route path="/login" element={usuarioLogeado ? <Navigate to="/curso" replace /> : <FormularioLogin usuario={usuario} setUsuario={setUsuario} contrasenia={contrasenia} setContrasenia={setContrasenia} Logear={Logear} />} />
