@@ -31,7 +31,9 @@ const Examen = ({preguntas}) => {
       const aprobado = contCorrectas >=3
       setResultadoFinal({contCorrectas, totalPreguntas, aprobado})
     }
- 
+    
+    const desabilitar = resultadoFinal !== null //condicion para desabilitar inputs
+
     return(
         <div>
             {preguntas.map((preg, index) =>(
@@ -43,22 +45,30 @@ const Examen = ({preguntas}) => {
                             {preg.opciones.map((op, i) => (
                                 <label key={i}>
                                     <input type="radio" name={preg.id} value={i}
-                                    checked={respEstudiante[preg.id] === i}
+                                    checked={respEstudiante[preg.id] === i} disabled={desabilitar}
                                     onChange={() => opcionSeleccionada(preg.id, i)}/>
                                     {op}
                                 </label>
                             ))}
+                            {desabilitar && ( <p>Respuesta correcta: {" "}{preg.opciones[preg.respuestaCorrecta]}
+                            </p>
+                            )}
                         </div>
                     )}
 
                     {preg.tipo === "ABIERTA" && (
+                      <div>
                         <input type="text" placeholder="Escribe la respuesta correcta"
-                        value={respEstudiante[preg.id] || ""} 
+                        value={respEstudiante[preg.id] || ""} disabled={desabilitar}
                         onChange={(evento) => respEscrita(preg.id, evento.target.value)}/>
+                        {desabilitar && (
+                          <p>Respuesta correcta: {preg.respuestaCorrecta}</p>
+                        )}
+                        </div>
                     )}
                 </div>
             ))}
-            <button onClick={enviarExamen}>Enviar</button>
+            <button onClick={enviarExamen} disabled={desabilitar}>Enviar</button>
 
             {resultadoFinal && (
               <p>Calificacion: {resultadoFinal.contCorrectas}/{resultadoFinal.totalPreguntas}
