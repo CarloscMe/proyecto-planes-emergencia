@@ -1,47 +1,43 @@
-import { useStateLogin } from "./componentes/login"; //hook personalizado de login
+import { useStateLogin } from "./componentes/login";
 import FormularioLogin from "./FormularioLogin";
 import { Curso } from "./Curso";
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { examenes } from "./componentes/examen";
-import SeleccionarExamen from "./SeleccionarExamen";
 import { Lecciones } from "./Lecciones";
+import { Routes, Route, Navigate, useParams } from "react-router-dom";
+import { examenes } from "./componentes/examen";
+import Examen from "./Examen";
 
 function App() {
-  //usuario y contraseña del test
   const superUsuario = 'test';
   const superContrasenia = '1234';
 
-  const {usuario, setUsuario, contrasenia, setContrasenia, usuarioLogeado, 
-    Logear, CerrarSesion} = useStateLogin(superUsuario, superContrasenia);
+  const { usuarioLogeado, usuario, setUsuario, contrasenia, setContrasenia, Logear, CerrarSesion } = useStateLogin(superUsuario, superContrasenia);
 
-  const navigate = useNavigate();
+  const ExamenLeccion = () => {
+    const { id } = useParams();
+    const leccionId = parseInt(id, 10);
+    const examen = examenes[leccionId - 1]; 
 
-  <Route path="/" element={<Navigate to={usuarioLogeado ? "/curso" : "/login"} replace />} />
+    if (!examen || isNaN(leccionId) || leccionId < 1 || leccionId > examenes.length) {
+      return <div><h2>Examen no encontrado</h2></div>;
+    }
 
-  /*--------------------------------------------------------------------------*/
-  const [indiceSeleccionado, setIndiceSeleccionado] = useState(0)
-  const cambioLeccion = (evento) => setIndiceSeleccionado(parseInt(evento.target.value));
-  const seleccionada = examenes[indiceSeleccionado];
+    return (
+      <>
+        <h2>Examen - Lección {leccionId}</h2>
+        <Examen preguntas={examen.preguntas} />
+      </>
+    );
+  };
+
   return (
-    <>
-    <div>
-      <hr/>
-        <SeleccionarExamen examenes={examenes} seleccionada={seleccionada} 
-        indiceSeleccionado={indiceSeleccionado} cambioLeccion={cambioLeccion}/>
-      <hr/>
-    </div>
-
-    <Routes>
-      <Route path="/login" element={usuarioLogeado ? <Navigate to="/curso" replace /> : <FormularioLogin usuario={usuario} setUsuario={setUsuario} contrasenia={contrasenia} setContrasenia={setContrasenia} Logear={Logear} />} />
-      <Route path="/curso" element={usuarioLogeado ? (<><h2>Gusto en verte de nuevo, {usuarioLogeado}</h2><button onClick={CerrarSesion}>Cerrar Sesión</button><Curso /></>) : <Navigate to="/login" replace />} />
-      <Route path="/lecciones/:id" element={usuarioLogeado ? <Lecciones /> : <Navigate to="/login" replace />} />
-      <Route path="/" element={usuarioLogeado ? <Navigate to="/curso" replace /> : <Navigate to="/login" replace />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
-
-  </>
-
+ <Routes>
+  <Route path="/login" element={usuarioLogeado ? <Navigate to="/curso" replace /> : <FormularioLogin usuario={usuario} setUsuario={setUsuario} contrasenia={contrasenia} setContrasenia={setContrasenia} Logear={Logear} />} />
+  <Route path="/curso" element={usuarioLogeado ? (<><h2>Gusto en verte de nuevo, {usuarioLogeado}</h2><button onClick={CerrarSesion}>Cerrar Sesión</button><Curso /></>) : <Navigate to="/login" replace />} />
+  <Route path="/lecciones/:id" element={usuarioLogeado ? <Lecciones /> : <Navigate to="/login" replace />} />
+  <Route path="/examen/:id" element={usuarioLogeado ? <ExamenLeccion /> : <Navigate to="/login" replace />} />
+  <Route path="/" element={<Navigate to={usuarioLogeado ? "/curso" : "/login"} replace />} />
+  <Route path="*" element={<Navigate to="/" replace />} />
+</Routes>
   );
 }
 

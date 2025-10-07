@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import contenido from "../src/componentes/lecciones";
 import "./styles.css";
@@ -80,6 +80,12 @@ export const Lecciones = () => {
               </button>
             </li>
           ))}
+
+          <li>
+            <Link to={`/examen/${leccionId}`} className="nav-enlace-examen">
+              Examen
+            </Link>
+          </li>
         </ul>
       </nav>
 
@@ -113,7 +119,6 @@ export const Lecciones = () => {
                 src={seccion.imagen.trim()} 
                 alt={`Ilustración ${seccion.key}`} 
                 className="leccion-imagen"
-                style={{ maxWidth: '100%', height: 'auto', margin: '15px 0' }}
               />
             )}
 
