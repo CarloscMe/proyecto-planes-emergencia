@@ -46,3 +46,60 @@ main{
 .item__curso:hover{
     outline: 1px solid #22e2c9;
 }
+
+.layout-lecciones {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  padding: 20px;
+  height: calc(100vh - 40px);
+}
+
+.nav-lecciones {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.nav-lecciones ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-lecciones li {
+  margin: 10px 0;
+}
+
+.nav-lecciones button {
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nav-lecciones button.activo {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.main-lecciones {
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.video-container {
+  margin: 20px 0;
+}
+
+.caso-practico {
+  background: #f9f9f9;
+  padding: 15px;
+  border-left: 4px solid #28a745;
+  margin-top: 15px;
+}

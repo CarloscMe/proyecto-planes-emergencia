@@ -1,11 +1,11 @@
 import { useStateLogin } from "./componentes/login"; //hook personalizado de login
 import FormularioLogin from "./FormularioLogin";
-import { Curso} from "./Curso"
+import { Curso } from "./Curso";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
-import {useEffect, useState } from "react";
-
+import { useEffect, useState } from "react";
 import { examenes } from "./componentes/examen";
 import SeleccionarExamen from "./SeleccionarExamen";
+import { Lecciones } from "./Lecciones";
 
 function App() {
   //usuario y contraseña del test
@@ -17,11 +17,7 @@ function App() {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (usuarioLogeado) {
-      navigate("/curso", { replace: true });
-    }
-  }, [usuarioLogeado, navigate]);
+  <Route path="/" element={<Navigate to={usuarioLogeado ? "/curso" : "/login"} replace />} />
 
   /*--------------------------------------------------------------------------*/
   const [indiceSeleccionado, setIndiceSeleccionado] = useState(0)
@@ -39,6 +35,7 @@ function App() {
     <Routes>
       <Route path="/login" element={usuarioLogeado ? <Navigate to="/curso" replace /> : <FormularioLogin usuario={usuario} setUsuario={setUsuario} contrasenia={contrasenia} setContrasenia={setContrasenia} Logear={Logear} />} />
       <Route path="/curso" element={usuarioLogeado ? (<><h2>Gusto en verte de nuevo, {usuarioLogeado}</h2><button onClick={CerrarSesion}>Cerrar Sesión</button><Curso /></>) : <Navigate to="/login" replace />} />
+      <Route path="/lecciones/:id" element={usuarioLogeado ? <Lecciones /> : <Navigate to="/login" replace />} />
       <Route path="/" element={usuarioLogeado ? <Navigate to="/curso" replace /> : <Navigate to="/login" replace />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

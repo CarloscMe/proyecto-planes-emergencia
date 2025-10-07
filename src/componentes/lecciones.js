@@ -1,5 +1,5 @@
 const contenido = [
-    {
+  {
     id: 1,
     titulo: 'Lección 1 — Introducción a Salud y Seguridad en el Trabajo (SST) y su relación con los planes de emergencia',
     objetivo: 'Objetivo: Entender la importancia de la SST y cómo los planes de emergencia forman parte de ella.',
@@ -10,11 +10,17 @@ const contenido = [
     tituloB: 'Relación entre SST y planes de emergencia',
     definicionB: 'Los planes de emergencia forman parte del Sistema de Gestión en SST, ya que permiten responder a situaciones que, de no ser controladas, ponen en riesgo a las personas y a la operación de la empresa. Sin ellos, la prevención queda incompleta, pues se ignora cómo actuar en caso de que la amenaza se materialice.',
     imagenB: 'https://sp-ao.shortpixel.ai/client/to_webp%2Cq_glossy%2Cret_img%2Cw_1331%2Ch_800/https%3A//www.fltingenieriasas.com/wp-content/uploads/2022/03/plan-emergencias-.png',
-    casoPractico: 'En una fábrica de alimentos, un trabajador sufrió una caída al no usar el calzado de seguridad. La empresa no contaba con un plan de emergencias, lo que retrasó la atención y generó caos entre los demás empleados. A raíz del incidente, la gerencia implementó un Sistema de Gestión en SST y diseñó un plan de emergencia, logrando reducir en un 70% los accidentes en el siguiente año.',
+    tituloC: 'Responsabilidades del empleador y trabajador en SST',
+    definicionC: 'El empleador debe garantizar condiciones seguras, capacitar al personal y proveer elementos de protección. El trabajador, por su parte, debe seguir los protocolos, usar los EPP y reportar riesgos. Ambos son corresponsables en la prevención.',
+    casoPracticoC: 'En una constructora, un trabajador no usaba casco por comodidad. Tras una inspección, se le capacitó sobre su importancia. Semanas después, una caída de material lo golpeó en la cabeza, pero el casco evitó lesiones graves.',
+    tituloD: 'Beneficios de integrar planes de emergencia en la cultura organizacional',
+    definicionD: 'Cuando los planes de emergencia se internalizan como parte de la cultura laboral, los empleados actúan con mayor calma y eficacia durante crisis, reduciendo pánico, tiempos de respuesta y daños materiales o humanos.',
+    casoPracticoD: 'Una empresa minera realizó talleres mensuales sobre evacuación. Durante un derrumbe real, los trabajadores evacuaron en orden en menos de 8 minutos, sin heridos, gracias a la preparación constante.',
+    tituloE: 'SST y planes de emergencia: una inversión en vida y productividad',
     video: 'https://www.youtube.com/watch?v=8myU_vlpvBQ',
     conclusiones: ["SST protege la vida y el trabajo.", "Los planes de emergencia son parte de la SST.", "Toda empresa debe tenerlos implementados."],
-    },
-    {
+  },
+  {
     id: 2,
     titulo: 'Lección 2 — Identificación de amenazas, evaluación de riesgos y medidas preventivas (aplicadas a emergencias)',
     objetivo: 'Objetivo: Aprender a identificar amenazas (naturales, tecnológicas, humanas), evaluar vulnerabilidades y priorizar controles preventivos que reduzcan la probabilidad e impacto de emergencias.',
@@ -25,11 +31,17 @@ const contenido = [
     tituloB: 'Riesgos externos (sismos, inundaciones, disturbios).',
     definicionB: 'Se relacionan con factores externos como desastres naturales (sismos, inundaciones, tormentas), situaciones sociales (disturbios, protestas) o accidentes en zonas cercanas (explosiones, derrames químicos). Aunque no siempre se pueden evitar, sí es posible mitigar sus efectos con planes adecuados de preparación.',
     imagenB: 'https://wiki.ead.pucv.cl/images/thumb/e/ea/PH_WIKI17.jpg/1000px-PH_WIKI17.jpg',
-    casoPractico: 'En una oficina de una empresa de software, se descubrió que varias extensiones eléctricas estaban sobrecargadas, lo que generaba riesgo de incendio. El área de SST realizó una inspección, clasificó el riesgo como alto y ordenó la instalación de nuevos puntos eléctricos. Gracias a esta identificación temprana, se evitó un posible incendio que habría puesto en peligro la vida de 40 trabajadores.',
+    tituloC: 'Matriz de evaluación de riesgos: probabilidad vs impacto',
+    definicionC: 'La matriz permite clasificar riesgos según su probabilidad de ocurrencia e impacto potencial. Los de alta probabilidad y alto impacto deben abordarse con prioridad mediante controles técnicos, administrativos o de EPP.',
+    casoPracticoC: 'En una bodega, se identificó que los estantes altos tenían alta probabilidad de caída (impacto alto). Se instaló sistema anticaída y se reubicaron productos pesados abajo, eliminando el riesgo.',
+    tituloD: 'Controles preventivos: eliminación, sustitución y procedimientos',
+    definicionD: 'La jerarquía de controles prioriza: 1) eliminar el riesgo, 2) sustituirlo por uno menor, 3) aplicar controles de ingeniería, 4) usar procedimientos administrativos y 5) entregar EPP como última línea de defensa.',
+    casoPracticoD: 'Una fábrica usaba un solvente tóxico. Lo sustituyó por uno biodegradable (nivel 2 de la jerarquía), reduciendo riesgos respiratorios sin afectar la producción.',
+    tituloE: 'Evaluar riesgos no es burocracia: es salvar vidas antes de que ocurra el accidente',
     video: 'https://www.youtube.com/watch?v=X2KGqjb7saY',
     conclusiones: ["Los riesgos pueden ser internos o externos.", "Identificarlos es el primer paso de un plan.", "La evaluación continua es fundamental."],
-    },
-    {
+  },
+  {
     id: 3,
     titulo: 'Lección 3 — Organización de la respuesta: brigada de emergencia, roles y formación',
     objetivo: 'Objetivo: Definir la estructura operativa para respuesta a emergencias: comité/brigada, funciones, formación y rotación de personal.',
@@ -40,11 +52,17 @@ const contenido = [
     tituloB: 'Roles definidos (coordinador, líderes de piso, brigadistas).',
     definicionB: 'Un plan de emergencia requiere roles claros para evitar confusiones, estos roles estan compuestos por un coordinador general (dirige toda la operación), los líderes de piso o área (verifican que nadie quede atrás en evacuaciones) y los brigadistas (ejecutan tareas específicas de primeros auxilios, incendios o comunicación)',
     imagenB: 'https://www.ambientebogota.gov.co/documents/10184/645392/Organigrama-Brigada-SDA-2022.jpg/888a38e1-ebe2-4521-b282-0c0b36f50db6?t=1661551755176',
-    casoPractico: 'En un centro comercial, un cliente se desmayó por un golpe de calor. La brigada de primeros auxilios actuó de inmediato: un brigadista inició RCP mientras otro coordinaba la llamada a emergencias. La rápida acción permitió estabilizar al paciente antes de la llegada de la ambulancia. Este hecho demostró la importancia de contar con brigadas entrenadas y roles definidos.',
+    tituloC: 'Selección y perfil del brigadista',
+    definicionC: 'Los brigadistas deben ser voluntarios, responsables, con buena condición física, capacidad de liderazgo y disposición para capacitarse. No se trata de elegir a los más fuertes, sino a los más comprometidos y calmados bajo presión.',
+    casoPracticoC: 'Una recepcionista fue elegida como brigadista por su calma y conocimiento de la planta. Durante un simulacro, guió a visitantes con discapacidad visual a la salida, demostrando que la empatía es tan clave como la fuerza.',
+    tituloD: 'Capacitación continua y actualización de protocolos',
+    definicionD: 'Las brigadas deben recibir formación inicial y reciclajes trimestrales. Los protocolos deben actualizarse tras cada simulacro o incidente real para incorporar lecciones aprendidas.',
+    casoPracticoD: 'Tras un incendio menor, una empresa ajustó su protocolo: ahora los brigadistas verifican que las puertas cortafuegos estén cerradas automáticamente, algo que antes se pasaba por alto.',
+    tituloE: 'Una brigada bien entrenada no solo responde: previene el pánico y salva vidas',
     video: 'https://www.youtube.com/watch?v=Lucd_Z2c0o4',
     conclusiones: ["Una brigada organizada garantiza respuesta rápida.", "Roles claros evitan el caos.", "Entrenamiento constante es clave."],
-    },
-    {
+  },
+  {
     id: 4,
     titulo: 'Lección 4 — Plan de evacuación, señalización y realización de simulacros',
     objetivo: 'Objetivo: Diseñar rutas y puntos de encuentro, señalización adecuada y conocer la metodología para planificar, ejecutar y evaluar simulacros.',
@@ -55,11 +73,17 @@ const contenido = [
     tituloB: 'Simulacros como práctica preventiva',
     definicionB: 'Un simulacro permite ensayar el plan en condiciones controladas. Gracias a ellos se identifican fallas, se entrenan los brigadistas y se familiariza al personal con los procedimientos. La periodicidad recomendada es al menos dos veces al año.',
     imagenB: 'https://guayaquil.gob.ec/wp-content/uploads/2024/11/personas-cerca-empresas-participaron-activamente-simulacro-terremoto-guayaquil-2024-5.jpg',
-    casoPractico: 'En una empresa textil de 300 trabajadores, se realizó un simulacro de incendio. En el primer intento, la evacuación tomó 12 minutos y varios empleados no sabían hacia dónde dirigirse. Tras ajustar la señalización y repetir el simulacro un mes después, el tiempo se redujo a 5 minutos, cumpliendo con los estándares internacionales. El ejercicio evidenció la necesidad de practicar y mejorar continuamente los procedimientos de evacuación.',
+    tituloC: 'Puntos de encuentro y verificación de asistencia',
+    definicionC: 'Los puntos de encuentro deben estar alejados de edificios, ser accesibles y tener capacidad para todo el personal. Allí, los líderes de área verifican la asistencia usando listas o códigos QR para asegurar que nadie quedó atrapado.',
+    casoPracticoC: 'En una universidad, usan una app móvil para escanear códigos QR al llegar al punto de encuentro. En un simulacro, detectaron que 3 estudiantes estaban “desaparecidos”; resultaron estar en un laboratorio cerrado, lo que llevó a crear una ruta alternativa.',
+    tituloD: 'Evaluación post-simulacro: informe de hallazgos y mejoras',
+    definicionD: 'Tras cada simulacro, se debe elaborar un informe con tiempos, fallas, observaciones y acciones correctivas. Este documento es clave para la mejora continua del plan de emergencia.',
+    casoPracticoD: 'Un hospital redujo su tiempo de evacuación de 15 a 7 minutos en 6 meses gracias a ajustes basados en informes de simulacros: mejor señalización, más brigadistas y rutas diferenciadas por piso.',
+    tituloE: 'Evacuar rápido no es caótico: es el resultado de practicar hasta que el orden sea instintivo',
     video: 'https://www.youtube.com/watch?v=ZW5hd7Tz2wQ',
     conclusiones: ["Señalización y rutas claras son esenciales.", "Simulacros salvan vidas en la práctica real.", "Cada minuto cuenta en emergencias."],
-    },
-    {
+  },
+  {
     id: 5,
     titulo: 'Lección 5 — Atención inicial (primeros auxilios), comunicaciones y continuidad operacional.',
     objetivo: 'Objetivo: Conocer protocolos básicos de primeros auxilios en emergencias, comunicación interna/externa y medidas para asegurar la continuidad del servicio tras la emergencia.',
@@ -70,9 +94,16 @@ const contenido = [
     tituloB: 'Técnicas básicas (RCP, control de hemorragias).',
     definicionB: 'Algunas de las tecnicas uilizadas son el RCP (Reanimación Cardiopulmonar), el control de hemorragias con presión directa, la atención de quemaduras con agua limpia y vendaje y el traslado seguro de lesionados.',
     imagenB: 'https://image.ondacero.es/clipping/cmsimages01/2024/01/28/AA175CFB-8F9A-42F7-9566-E29D802DAA43/como-actuar-alguien-necesita-rcp-estos-son-tres-pasos-fundamentales_104.jpg?crop=3530,3530,x595,y0&width=1200&height=1200&optimize=low&format=webply',
-    casoPractico: 'Durante un turno nocturno en una planta química, un trabajador sufrió una cortadura profunda en la mano. Un brigadista aplicó presión directa, elevó la extremidad y utilizó guantes para evitar infecciones. Posteriormente, el herido fue trasladado al hospital. Gracias a la atención inmediata, se evitó una hemorragia grave y el trabajador se recuperó sin complicaciones.',
+    tituloC: 'Comunicación interna durante una emergencia',
+    definicionC: 'Es vital contar con canales de comunicación claros: megafonía, radios, apps o señales acústicas. El mensaje debe ser breve, claro y repetido: “Evacúen por ruta A”, “Incendio en piso 2”, etc.',
+    casoPracticoC: 'En una fábrica, una alarma sonó sin mensaje. Los trabajadores no supieron qué hacer. Tras eso, implementaron un sistema de voz que indica el tipo de emergencia y la acción a seguir, reduciendo la confusión en un 90%.',
+    tituloD: 'Plan de continuidad del negocio (PCB) post-emergencia',
+    definicionD: 'El PCB define cómo la empresa retomará operaciones tras una emergencia: respaldo de datos, ubicaciones alternas, proveedores de respaldo y protocolos de restablecimiento. No se trata solo de salvar vidas, sino de garantizar la supervivencia de la organización.',
+    casoPracticoD: 'Tras una inundación, una empresa de TI activó su sede alterna en la nube y recuperó sus datos en 2 horas, perdiendo solo 15 minutos de trabajo, gracias a su PCB bien estructurado.',
+    tituloE: 'Responder bien en la emergencia y recuperarse rápido después: la verdadera resiliencia empresarial',
     video: 'https://www.youtube.com/watch?v=lwCX1aq6tB4',
     conclusiones: ["Primeros auxilios estabilizan al herido hasta la ayuda médica.", "Todo trabajador debe recibir capacitación.", "Botiquines actualizados son vitales."],
-    }
-]
+  }
+];
+
 export default contenido;
