@@ -35,43 +35,43 @@ const Examen = ({preguntas}) => {
     const desabilitar = resultadoFinal !== null //condicion para desabilitar inputs
 
     return(
-        <div>
+        <div  className="examen-container">
             {preguntas.map((preg, index) =>(
-                <div key={preg.id}>
-                    <p>{index + 1}. {preg.pregunta}</p>
+                <div key={preg.id} className="pregunta-card">
+                    <p className="pregunta-texto">{index + 1}. {preg.pregunta}</p>
 
                     {(preg.tipo === "VF" || preg.tipo === "OPCION") && (
-                        <div>
+                        <div className="opciones-container">
                             {preg.opciones.map((op, i) => (
-                                <label key={i}>
-                                    <input type="radio" name={preg.id} value={i}
+                                <label key={i}  className="opcion-label">
+                                    <input type="radio"   className="opcion-input" name={preg.id} value={i}
                                     checked={respEstudiante[preg.id] === i} disabled={desabilitar}
                                     onChange={() => opcionSeleccionada(preg.id, i)}/>
                                     {op}
                                 </label>
                             ))}
-                            {desabilitar && ( <p>Respuesta correcta: {" "}{preg.opciones[preg.respuestaCorrecta]}
+                            {desabilitar && ( <p className="respuesta-correcta">Respuesta correcta: {" "}{preg.opciones[preg.respuestaCorrecta]}
                             </p>
                             )}
                         </div>
                     )}
 
                     {preg.tipo === "ABIERTA" && (
-                      <div>
-                        <input type="text" placeholder="Escribe la respuesta correcta"
+                      <div className="respuesta-abierta-container">
+                        <input type="text" className="respuesta-input" placeholder="Escribe la respuesta correcta"
                         value={respEstudiante[preg.id] || ""} disabled={desabilitar}
                         onChange={(evento) => respEscrita(preg.id, evento.target.value)}/>
                         {desabilitar && (
-                          <p>Respuesta correcta: {preg.respuestaCorrecta}</p>
+                          <p className="respuesta-correcta">Respuesta correcta: {preg.respuestaCorrecta}</p>
                         )}
                         </div>
                     )}
                 </div>
             ))}
-            <button onClick={enviarExamen} disabled={desabilitar}>Enviar</button>
+            <button className="btn-enviar" onClick={enviarExamen} disabled={desabilitar}>Enviar</button>
 
             {resultadoFinal && (
-              <p>Calificacion: {resultadoFinal.contCorrectas}/{resultadoFinal.totalPreguntas}
+              <p className={`resultado-final ${resultadoFinal.aprobado ? 'aprobado' : 'reprobado'}`}>Calificacion: {resultadoFinal.contCorrectas}/{resultadoFinal.totalPreguntas}
                  {" - "}{resultadoFinal.aprobado ? "Aprobo el examen" : "Reprobo el examen"}</p>
             )}
         </div>

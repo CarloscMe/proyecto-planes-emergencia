@@ -8,44 +8,152 @@ body{
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-main{
-    width: 100%;
-    min-height: 100dvh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
+/*formulario*/
+
+#login-container {
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  margin: 40px auto;
 }
 
-.item__curso{
-   width: 70%;
-   height: 320px;
-   box-shadow: 0 0 4px 0 #202020;
-   margin: 0 5px;
-   cursor: pointer;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
+#titulo--login {
+  color: #0277bd;
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-.item--img{
-    width: 100%;
-    height: 70%;
-    display: block;
+#formulario label {
+  display: block;
+  text-align: left;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #37474f;
+  font-size: 15px;
 }
 
-.item--titulo{
-    font-size: .9em;
-    text-align: center;
+#formulario input[type="text"],
+#formulario input[type="password"] {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #b0bec5;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
 }
 
-.item--docente{
-    margin: 0 5px 10px;
+#formulario input[type="text"]:focus,
+#formulario input[type="password"]:focus {
+  border-color: #0288d1;
+  box-shadow: 0 0 0 3px rgba(2, 136, 209, 0.15);
 }
 
-.item__curso:hover{
-    outline: 1px solid #22e2c9;
+#btn--enviar {
+  width: 100%;
+  padding: 14px;
+  margin-top: 28px;
+  background-color: #0288d1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
+#btn--enviar:hover {
+  background-color: #0277bd;
+  transform: translateY(-2px);
+}
+
+#btn--enviar:active {
+  transform: translateY(0);
+}
+
+/*curso*/
+
+.curso {
+  width: 100%;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 24px;
+  box-sizing: border-box;
+  justify-items: center;
+  align-content: start;
+}
+
+.item__curso {
+  text-decoration: none;
+  color: #0a0a0a;
+  width: 100%;
+  max-width: 360px;
+  height: 320px;
+  box-shadow: 0 0 4px 0 #202020;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.item--img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  display: block;
+}
+
+.item--titulo {
+  font-size: 0.9em;
+  text-align: center;
+  padding: 0 8px;
+}
+
+.item--docente {
+  margin: 0 8px 10px;
+  font-size: 0.85em;
+}
+
+.item__curso:hover {
+  outline: 1px solid #22e2c9;
+}
+
+.nav__bar {
+  background: #007aff;
+  min-height: 10dvh;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.nav__bar h2 {
+  color: #fff;
+  margin: 0;
+}
+
+.nav__bar button {
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/*estilos de lecciones*/
 
 .layout-lecciones {
   display: grid;
@@ -87,21 +195,66 @@ main{
 }
 
 .main-lecciones {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* ✅ Espaciado consistente entre bloques */
   padding: 20px;
   background: white;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  overflow-y: auto;
+  align-items: flex-start; /* Evita que los hijos (como h2, p) se estiren al 100% innecesariamente */
+}
+
+/* Títulos y párrafos: evitan que se estiren demasiado */
+.main-lecciones h2,
+.main-lecciones h3,
+.main-lecciones h4,
+.main-lecciones p,
+.main-lecciones ul {
+  margin: 0;
+  width: 100%;
+  max-width: 800px; /* Límite razonable para texto legible */
 }
 
 .video-container {
-  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
+.video-container iframe {
+  width: 600px;
+  height: 600px;
+  max-width: 100%;
+  max-height: 60vh; /* Previene desbordamiento en pantallas pequeñas */
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.leccion-imagen {
+  display: block;
+  width: 100%;
+  max-width: 700px;           /* Límite razonable */
+  height: auto;               /* Mantiene proporción */
+  max-height: 60vh;           /* Evita que sea demasiado alta */
+  object-fit: contain;        /* Muestra toda la imagen sin recortar */
+  object-position: center;    /* Centra la imagen dentro de su contenedor */
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin: 15px 0;
+  box-sizing: border-box;
+}
+
+/* Caso práctico: también respetar el ancho máximo */
 .caso-practico {
+  width: 100%;
+  max-width: 800px;
   background: #f9f9f9;
   padding: 15px;
   border-left: 4px solid #28a745;
-  margin-top: 15px;
+  box-sizing: border-box;
 }
 
 .nav-enlace-examen {
@@ -126,10 +279,254 @@ main{
   border-color: #007bff;
 }
 
-.leccion-imagen {
-  max-width: 100%;
-  height: auto;
-  margin: 15px 0;
+/*responsive*/
+
+@media (max-width: 768px) {
+
+  .layout-lecciones {
+    grid-template-columns: 1fr;
+    padding: 15px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .nav-lecciones,
+  .main-lecciones {
+    width: 100%;
+  }
+}
+
+.nav-lecciones {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.nav-lecciones ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-lecciones li {
+  margin: 10px 0;
+}
+
+.nav-lecciones button {
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+  background: white;
   border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.nav-lecciones button.activo {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.main-lecciones {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  overflow-y: auto;
+  align-items: flex-start;
+}
+
+.main-lecciones h2,
+.main-lecciones h3,
+.main-lecciones h4,
+.main-lecciones p,
+.main-lecciones ul {
+  margin: 0;
+  width: 100%;
+  max-width: 800px;
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.video-container iframe {
+  width: 400px;
+  height: 400px;
+  max-width: 100%;
+  max-height: 60vh;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .video-container iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-height: 300px;
+  }
+}
+
+.leccion-imagen {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin: 15px 0;
+  box-sizing: border-box;
+}
+
+.caso-practico {
+  width: 100%;
+  max-width: 800px;
+  background: #f9f9f9;
+  padding: 15px;
+  border-left: 4px solid #28a745;
+  box-sizing: border-box;
+}
+
+.nav-enlace-examen {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  text-decoration: none;
+  color: #007bff;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-enlace-examen:hover {
+  background-color: #f8f9fa;
+  color: #0056b3;
+  border-color: #007bff;
+}
+
+/*examen*/
+
+.examen-container {
+  max-width: 800px;
+  margin: 24px auto;
+  padding: 20px;
+  font-family: system-ui, sans-serif;
+}
+
+.pregunta-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.pregunta-texto {
+  margin: 0 0 12px;
+  font-weight: 500;
+  color: #263238;
+}
+
+.opcion-label {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+  padding: 6px 0;
+  cursor: pointer;
+}
+
+.opcion-input {
+  margin-right: 10px;
+  transform: scale(1.1);
+}
+
+.respuesta-input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.respuesta-input:disabled {
+  background: #fafafa;
+}
+
+.respuesta-correcta {
+  margin-top: 12px;
+  padding: 8px;
+  background: #f0f9f2;
+  color: #2e7d32;
+  border-left: 3px solid #4caf50;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.btn-enviar {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  margin: 24px auto 16px;
+  padding: 12px;
+  background: #0288d1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-enviar:disabled {
+  background: #bdbdbd;
+  cursor: not-allowed;
+}
+
+.resultado-final {
+  text-align: center;
+  padding: 14px;
+  margin-top: 16px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.resultado-final.aprobado {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.resultado-final.reprobado {
+  background: #ffebee;
+  color: #c62828;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .examen-container {
+    padding: 16px;
+    margin: 12px;
+  }
+  .pregunta-card {
+    padding: 16px;
+  }
+  .btn-enviar {
+    padding: 10px;
+  }
 }

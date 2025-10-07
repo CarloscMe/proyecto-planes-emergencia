@@ -32,7 +32,7 @@ function App() {
   return (
  <Routes>
   <Route path="/login" element={usuarioLogeado ? <Navigate to="/curso" replace /> : <FormularioLogin usuario={usuario} setUsuario={setUsuario} contrasenia={contrasenia} setContrasenia={setContrasenia} Logear={Logear} />} />
-  <Route path="/curso" element={usuarioLogeado ? (<><h2>Gusto en verte de nuevo, {usuarioLogeado}</h2><button onClick={CerrarSesion}>Cerrar Sesión</button><Curso /></>) : <Navigate to="/login" replace />} />
+  <Route path="/curso" element={usuarioLogeado ? (<><nav className="nav__bar"><h2>Gusto en verte de nuevo, {usuarioLogeado}</h2><button onClick={CerrarSesion}>Cerrar Sesión</button></nav><Curso /></>) : <Navigate to="/login" replace />} />
   <Route path="/lecciones/:id" element={usuarioLogeado ? <Lecciones /> : <Navigate to="/login" replace />} />
   <Route path="/examen/:id" element={usuarioLogeado ? <ExamenLeccion /> : <Navigate to="/login" replace />} />
   <Route path="/" element={<Navigate to={usuarioLogeado ? "/curso" : "/login"} replace />} />
